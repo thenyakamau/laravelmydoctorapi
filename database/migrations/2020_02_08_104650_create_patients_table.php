@@ -16,13 +16,13 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->double('lang');
-            $table->double('long');
-            $table->double('visits');
-            $table->string('doctor_recommendation');
-            $table->string('medicine');
-            $table->string('uploads');
-            $table->string('favourite_hospitals');
+            $table->double('lang')->nullable();
+            $table->double('long')->nullable();
+            $table->double('visits')->nullable();
+            $table->string('doctor_recommendation')->nullable();
+            $table->string('medicine')->nullable();
+            $table->string('uploads')->nullable();
+            $table->string('favourite_hospitals')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

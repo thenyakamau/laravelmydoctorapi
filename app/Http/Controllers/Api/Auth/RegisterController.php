@@ -115,8 +115,8 @@ class RegisterController extends Controller
 
         $patient = new Patients();
         $patient->user_id = $user->id;
-        $patient->lang = $request->lang;
-        $patient->long = $request->long;
+        // $patient->lang = $request->lang;
+        // $patient->long = $request->long;
         if($request->hasFile("image")){
             $photo = $request->image;
         $patient->uploads = $photo->store('uploads/hop/logo');
