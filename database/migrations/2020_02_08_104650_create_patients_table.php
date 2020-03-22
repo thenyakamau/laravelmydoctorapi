@@ -21,6 +21,7 @@ class CreatePatientsTable extends Migration
             $table->double('visits')->nullable();
             $table->string('doctor_recommendation')->nullable();
             $table->string('medicine')->nullable();
+            $table->string('health_rate')->nullable();
             $table->string('uploads')->nullable();
             $table->string('favourite_hospitals')->nullable();
             $table->timestamps();

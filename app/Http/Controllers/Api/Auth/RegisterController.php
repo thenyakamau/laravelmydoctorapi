@@ -43,7 +43,7 @@ class RegisterController extends Controller
 
         ]);
 
-       
+
 
        return $this->issueToken($request,'password');
     }
@@ -63,6 +63,7 @@ class RegisterController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->status = "doctor";
         $user->password = Hash::make($request->password);
         $user->phone_number = $request->phone_number;
         $user->save();
@@ -108,6 +109,7 @@ class RegisterController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->status = "patient";
         $user->password = Hash::make($request->password);
         $user->phone_number = $request->phone_number;
         $user->save();

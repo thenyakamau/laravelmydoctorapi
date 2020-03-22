@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLoginDetailsTable extends Migration
+class CreateMedicineRatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateLoginDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('login_details', function (Blueprint $table) {
+        Schema::create('medicine_rates', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('firebasetoken');
+            $table->string('medicine_name');
+            $table->string('amount');
+            $table->string('inital_amout');
+            $table->string('final_amount');
+            $table->string('daily_log');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -30,6 +34,6 @@ class CreateLoginDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('login_details');
+        Schema::dropIfExists('medicine_rates');
     }
 }

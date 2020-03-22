@@ -31,7 +31,9 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('posts', 'Api\PostController@index');
 
-    Route::get('patientDetails', 'Api\patientDetails@patientDetails');
+    Route::get('patientDetails', 'Api\DashBoardController@patientDetails');
+
+    Route::get('dashboardCount', 'Api\DashBoardController@patientRecords');
 
     Route::get('fetchChatMessages', 'Api\ChatMessagesController@fetchChatMessages');
 
