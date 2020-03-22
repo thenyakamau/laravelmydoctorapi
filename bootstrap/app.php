@@ -41,6 +41,11 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+//$app->register(LaravelFCM\FCMServiceProvider::class);
+
+// class_alias(\LaravelFCM\Facades\FCM::class, 'FCM');
+// class_alias(\LaravelFCM\Facades\FCMGroup::class, 'FCMGroup');
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
