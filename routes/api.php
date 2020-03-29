@@ -37,5 +37,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('fetchChatMessages', 'Api\ChatMessagesController@fetchChatMessages');
 
+    Route::post('saveUserLocation', 'Api\PatientController@saveUserLocation');
+
+
 
 });

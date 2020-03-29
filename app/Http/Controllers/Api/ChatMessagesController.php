@@ -18,22 +18,28 @@ class ChatMessagesController extends Controller
 {
     //
 
-    public function fetchChatMessages()
+    public function fetchUserChatContacts()
     {
-
         $messages = DB::table('chat_messages')
             ->join('users', 'users.id', '=', 'chat_messages.fid')
             ->select('chat_messages.*', 'users.email, users.name, users.id')
             ->where('tid', Auth::user()->id)
-            ->distinct()
+            ->distinct('fid')
             ->get();
 
         return response()->json(['chatMessages' => $messages]);
     }
 
+    public function fetchUserChatMessages(Request $request) {
+
+        $messages = ChatMessage::where('tid', Auth::user()->id)->where('fid', $request->fid)->get();
+
+        return response()->json(['chatMessages' => $messages]);
+
+    }
+
     public function sendUserMessage(Request $request)
     {
-
         $newMessage = new ChatMessage();
         $newMessage->tid = Auth::user()->id;
         $newMessage->response  = $request->message;

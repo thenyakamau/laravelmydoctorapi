@@ -11,7 +11,7 @@ class PatientController extends Controller
 {
     //
 
-    public function saveUserLocation(Reqquest $request) {
+    public function saveUserLocation(Request $request) {
 
         $user = Patients::findOrFail(Auth::user()->id);
         $user->lang = $request->lang;
